@@ -1,13 +1,108 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 90%;
+  height: 100px;
+  margin: 0 auto;
+}
+header .logo {
+  position: fixed;
+  display: inline-block;
+  align-self: flex-start;
+  z-index: 1000;
+  cursor: pointer;
+}
+header .hamburger-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  height: 50px;
+  width: 100px;
+  cursor: pointer;
+  z-index: 1000;
+}
+.menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+.menu span {
+  position: absolute;
+  left: -30px;
+  font-size: .8125rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  margin-right: 10px;
+  transition: 0.4s;
+  pointer-events: none;
+}
+.menu span:nth-child(2){
+  opacity: 0;
+  visibility: hidden;
+}
+.menu span.close {
+  opacity: 0;
+  visibility: hidden;
+}
+.menu span.open {
+  opacity: 1;
+  visibility: visible;
+}
+.hamburger div {
+  right: -30px;
+  position: relative;
+  width: 30px;
+  height: 3px;
+  border-radius: 1.5px;
+  background: #4e4e4e;
+  transition: 0.4s;
+}
+.hamburger div:before, .hamburger div:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  border-radius: 1.5px;
+  background: #4e4e4e;
+  transition: 0.2s;
+}
+.hamburger div:before {
+  top: -10px;
+}
+.hamburger div:after {
+  top: 10px;
+}
+.hamburger.open div {
+  transform: rotate(135deg);
+}
+.hamburger-container:hover .menu .hamburger div, .hamburger-container:hover .menu span{
+  color: #878A8F;
+} 
+.hamburger-container:hover .menu .hamburger div, .hamburger-container:hover .menu .hamburger div:before, .hamburger-container:hover .menu .hamburger div:after {
+  background: #878A8F;
+}
+.hamburger-container:hover .menu .hamburger.open div {
+  transform: rotate(225deg);
+}
+.hamburger.open div:before {
+  transform: rotate(90deg);
+  top: 0;
+}
+.hamburger.open div:after {
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
 }
